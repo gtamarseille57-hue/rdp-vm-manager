@@ -1,0 +1,35 @@
+vms:
+  - name: dev-rdp-01
+    provider: azure
+    location: westeurope
+    sku: Standard_D2s_v3
+    image: Win2022Datacenter
+    adminUser: adminuser
+    password: ChangeMe!123
+    rdp:
+      enabled: true
+      port: 3389
+    tailscale:
+      enabled: true
+      hostname: dev-rdp-01
+      authKey: ${TAILSCALE_AUTH_KEY}
+    github:
+      requiredOrg: my-org
+      requiredTeam: vm-admin
+
+  - name: dev-rdp-02
+    provider: azure
+    location: westeurope
+    sku: Standard_D2s_v3
+    image: Win2022Datacenter
+    adminUser: adminuser
+    password: ChangeMe!123
+    rdp:
+      enabled: true
+      port: 3389
+    tailscale:
+      enabled: false
+      hostname: dev-rdp-02
+    github:
+      requiredOrg: my-org
+      requiredTeam: vm-admin
